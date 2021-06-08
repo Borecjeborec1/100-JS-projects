@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="result-hdg"></h1>
+    <form id="btn">
+    </label>Name:
+      <input type="text" id="input" placeholder="Type your Name"/>
+      <button type="submit">Message</button>
+    </form>
+  </body>
+  <script>
+    const resultHeading = document.getElementById('result-hdg');
+    const input = document.getElementById('input');
+    const btn = document.getElementById('btn');
+
+    btn.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let inpValue = input.value;
+      if(inpValue){
+        resultHeading.innerText = `Hello and welcome, ${inpValue}`;
+
+      }
+    });
+  </script>
+</html>

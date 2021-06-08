@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-top: 25px;
+  text-align: center;
+}
+
+#container {
+  margin: auto;
+  background-color: rgb(128, 128, 128, 0.3);
+  height: 500px;
+  width: 500px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+#addItem {
+  height: 25px;
+  width: 50%;
+  margin-top: 25px;
+}
+
+#btnAdd {
+  padding: 2px;
+  transition: all 0.7s ease;
+}
+
+#btnDelete {
+  margin: 10px;
+  transition: all 1s ease;
+}
+
+#btnDelete:hover,
+#btnAdd:hover {
+  background-color: grey;
+}
+
+#textDiv {
+  background-color: white;
+  margin: auto;
+  height: 20px;
+  width: 80%;
+}
+
+.todo {
+  margin: 0.5rem;
+  color: black;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  border: none;
+  background-color: wheat;
+  transition: all 0.7s ease;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.deleteBtn,
+.completedButton {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  margin: 5px;
+  border: none;
+  transition: all 0.7s ease;
+}
+
+.deleteBtn:hover,
+.completedButton:hover {
+  transform: scale(1.1);
+  background-color: rgb(238, 172, 49);
+}
+
+.newTodo {
+  text-decoration: none;
+  margin: auto;
+  width: 75%;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+.fall {
+  transform: translateY(10rem) rotateZ(30deg);
+  opacity: 0;
+}
+
+#error {
+  color: red;
+}

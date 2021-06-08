@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      .column {
+        float: left;
+        width: 50%;
+      }
+
+      #image {
+        background: url('heads.png');
+        width: 227px;
+        height: 337px;
+      }
+
+      @keyframes spin {
+        0% {
+          background: url('./heads.png');
+        }
+
+        25% {
+          background: url('./tails.png');
+        }
+
+        50% {
+          background: url('./heads.png');
+        }
+
+        75% {
+          background: url('./tails.png');
+        }
+
+        100% {
+          background: url('./heads.png');
+        }
+      }
+      .animate {
+        width: 227px;
+        height: 337px;
+        animation-name: spin;
+        animation-iteration-count: 2;
+        animation-duration: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center container">
+      <h1>First Player to 5 Points Win!!</h1>
+
+      <div class="row">
+        <h3 class="column">Player Selected: <span id="playerSelected"></span></h3>
+        <h3 class="column">Computer Selected: <span id="computerSelected"></span></h3>
+      </div>
+
+      <div id="image"></div>
+
+      <div>
+        <h3>Player: <span id="playerPoints"></span></h3>
+        <h3>Computer: <span id="computerPoints"></span></h3>
+      </div>
+      <h2 style="font-weight: bold">Make a Selection</h2>
+      <button class="btn white black-text head" style="margin-right: 5px">Heads</button>
+      <button class="btn white black-text tail" style="margin-left: 5px">Tails</button>
+    </div>
+  </body>
+  <script>
+    const headBtn = document.querySelector('.head');
+    const tailBtn = document.querySelector('.tail');
+    const playerPoints = document.querySelector('#playerPoints');
+    const computerPoints = document.querySelector('#computerPoints');
+    const image = document.querySelector('#image');
+    const playerSelected = document.querySelector('#playerSelected');
+    const computerSelected = document.querySelector('#computerSelected');
+    const choises = ['Head', 'Tail'];
+    let playerCounter = 0;
+    let computerCounter = 0;
+
+    headBtn.addEventListener('click', () => {
+      main(0);
+    });
+    tailBtn.addEventListener('click', () => {
+      main(1);
+    });
+
+    function main(inp) {
+      const randomNumber = Math.floor(Math.random() * 2);
+      const randomNumber2 = Math.floor(Math.random() * 2);
+
+      playerSelected.innerText = choises[inp];
+      playerSelected.style.color = 'green';
+      computerSelected.innerText = choises[randomNumber];
+      computerSelected.style.color = 'blue';
+
+      image.classList.add('animate');
+      setTimeout(() => {
+        image.classList.remove('animate');
+
+        if (randomNumber2 == 0) {
+          image.style.backgroundImage = "url('./heads.png')";
+        } else {
+          image.style.backgroundImage = "url('./tails.png')";
+        }
+
+        if (choises[inp] === choises[randomNumber2]) {
+          playerCounter++;
+          playerPoints.innerText = `${playerCounter}`;
+          computerPoints.innerText = `${computerCounter}`;
+        }
+        if (choises[randomNumber] === choises[randomNumber2]) {
+          computerCounter++;
+          playerPoints.innerText = `${playerCounter}`;
+          computerPoints.innerText = `${computerCounter}`;
+        }
+      }, 1000);
+    }
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

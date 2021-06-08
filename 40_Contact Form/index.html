@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="container center"
+        style="padding: 25px 0 25px 0; border-radius: 10%; background-color: rgb(250, 219, 171)"
+      >
+        <h3>Please Contact Me</h3>
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <input type="text" id="autocomplete-input name" class="autocomplete one" />
+            <label for="autocomplete-input">Your Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <input id="email" type="email" class="validate brown-text two" />
+            <label for="email">Your Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <input type="text" id="autocomplete-input msg" class="autocomplete three" />
+            <label for="autocomplete-input">Your Message</label>
+          </div>
+        </div>
+        <button class="btn" id="send" style="margin-right: 75px">Send</button>
+        <button class="btn" id="reset">Reset</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const sendButton = document.getElementById('send');
+    const resetButton = document.getElementById('reset');
+
+    resetButton.addEventListener('click', () => {
+      let name = document.querySelector('.one');
+      let email = document.querySelector('.two');
+      let msg = document.querySelector('.three');
+
+      name.value = '';
+      email.value = '';
+      msg.value = '';
+    });
+    sendButton.addEventListener('click', () => {
+      let name = document.querySelector('.one').value;
+      let email = document.querySelector('.two').value;
+      let msg = document.querySelector('.three').value;
+
+      localStorage.setItem('name', name);
+      localStorage.setItem('email', email);
+      localStorage.setItem('msg', msg);
+    });
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

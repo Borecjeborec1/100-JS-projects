@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <title>BMI calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+  <div class="container center" style="padding:10px">
+    <h3>BMI Calculator</h3>
+    <div class="row">
+      <div class="input-field col s6">
+        <input type="number" id="autocomplete-input" class="autocomplete input1">
+        <label for="autocomplete-input">Height in CM</label>
+      </div>
+      <div class="input-field col s6">
+        <input type="number" id="autocomplete-input1" class="autocomplete input2">
+        <label for="autocomplete-input">Weight in KG</label>
+      </div>
+      
+      <button class="btn">Calculate</button>
+    </div>
+    <h6>Under Weight = < 18.6</h6>
+    
+    <h6>Normal Weight = 18.6 => 24.9</h6>
+    <h6>Over Weight = > 24.9</h6>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.autocomplete');
+    var instances = M.Autocomplete.init();
+  });
+  const newItem = document.createElement("h4");
+    document.querySelector(".container").appendChild(newItem);
+  document.querySelector(".btn").addEventListener("click",()=>{
+    let input1 = document.querySelector(".input1").value
+   let input2 = document.querySelector(".input2").value
+
+   if(input1 != "" && input2 != "" &&input1 > 0 && input2 > 0){
+
+    let calculate = (input2 / ((input1 * input1)/10000)).toFixed(2)
+    newItem.innerText = `Your BMI is: ${calculate}`
+   }
+  })
+  </script>
+
+</html>

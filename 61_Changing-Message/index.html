@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  </head>
+  <body>
+    <div class="container center blue lighten-3" style="margin-top: 25px; padding: 10px 0 500px 0">
+      <h2>Click to Get Message!</h2>
+      <h2 id="result" class="yellow-text bold-text"></h2>
+      <button class="btn blue lighten-1">Get Message</button>
+    </div>
+  </body>
+  <script>
+    const result = document.getElementById('result');
+    const btn = document.querySelector('.btn');
+
+    btn.addEventListener('click', () => {
+      let date = new Date();
+      let hours = date.getHours();
+      if (hours <= 6) {
+        result.innerText = `Good Morning!`;
+      } else if (hours <= 18) {
+        result.innerText = `Good Afternoon!`;
+      } else {
+        result.innerText = `Good Night!`;
+      }
+    });
+  </script>
+</html>

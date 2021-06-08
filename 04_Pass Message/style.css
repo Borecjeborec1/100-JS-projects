@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: skyblue;
+}
+
+#container {
+  margin: 20% auto;
+  width: 50%;
+  background-color: slateblue;
+  text-align: center;
+  border: 1px solid blueviolet;
+}
+
+h3,
+h4 {
+  padding: 25px;
+}
+
+#btn {
+  font-weight: bold;
+  margin-top: 20px;
+  color: black;
+  background-color: steelblue;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+#formInput {
+  padding: 5px 250px 5px 0px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="result-hdg"></h1>
+    <form id="btn">
+      <input type="number" id="input" />
+      <button type="submit">Tip</button>
+    </form>
+  </body>
+  <script>
+    const resultHeading = document.getElementById('result-hdg');
+    const input = document.getElementById('input');
+    const btn = document.getElementById('btn');
+
+    btn.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let inpValue = input.value;
+      let inpCalculated = Math.round(inpValue * 0.15);
+      resultHeading.innerText = `You should tip $${inpCalculated} on $100`;
+    });
+  </script>
+</html>

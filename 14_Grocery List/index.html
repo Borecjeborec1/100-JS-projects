@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery List</title>
+    <script src="https://kit.fontawesome.com/c9687a7a14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      .trashButton {
+        position: relative;
+        top: -37px;
+        left: 80px;
+      }
+      .trashButton:hover {
+        border-radius: 5px;
+        transform: scale(1.1);
+        background-color: rgb(120, 247, 209);
+      }
+      #newItemList {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .newItem {
+        border-radius: 5px;
+        padding: 5px;
+        margin: 10px auto;
+        min-width: 200px;
+        width: fit-content;
+        background-color: rgb(120, 247, 209);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form style="margin-top: 50px">
+        <input type="text" id="enterValue" style="width: 50%; margin: 0; margin-left: 20%" />
+      </form>
+      <button id="buttonSend" style="position: relative; top: -35px; left: 71%">
+        <i class="material-icons">send</i>
+      </button>
+      <ul id="newItemList"></ul>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

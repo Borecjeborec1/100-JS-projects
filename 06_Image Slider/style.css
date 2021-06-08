@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  margin: 20% auto;
+  width: 800px;
+  height: 400px;
+  border: 1px solid green;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#btnRight {
+  width: 20px;
+  height: 60px;
+  position: relative;
+  top: calc(50% - 30px);
+  right: -765px;
+}
+
+#btnLeft {
+  width: 20px;
+  height: 60px;
+  position: relative;
+  top: calc(50% - 30px);
+  left: -10px;
+}

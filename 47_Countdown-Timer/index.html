@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      .timerDiv {
+        display: inline-block;
+        min-width: 150px;
+        width: fit-content;
+        color: #fff;
+        background-color: #000;
+        margin: 10px;
+        border: 15px solid #85c825;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container center">
+      <h3 class="center">Countdown Clock</h3>
+      <div class="timerDiv center">
+        <h3 id="days-heading">6</h3>
+        <h6>Days</h6>
+      </div>
+      <div class="timerDiv center">
+        <h3 id="hours-heading">59</h3>
+        <h6>Hours</h6>
+      </div>
+      <div class="timerDiv center">
+        <h3 id="minutes-heading">59</h3>
+        <h6>Minutes</h6>
+      </div>
+      <div class="timerDiv center">
+        <h3 id="seconds-heading">59</h3>
+        <h6>Seconds</h6>
+      </div>
+    </div>
+  </body>
+  <script>
+    const SECONDS = document.getElementById('seconds-heading');
+    const MINUTES = document.getElementById('minutes-heading');
+    const HOURS = document.getElementById('hours-heading');
+    const DAYS = document.getElementById('days-heading');
+    setInterval(() => {
+      if (SECONDS.innerText >= 0) {
+        SECONDS.innerText--;
+        if (SECONDS.innerText == 0 && MINUTES.innerText != 0) {
+          SECONDS.innerText = 59;
+          MINUTES.innerText--;
+          if (MINUTES.innerText == 0 && HOURS.innerText != 0) {
+            MINUTES.innerText = 59;
+            HOURS.innerText--;
+            if (HOURS.innerText == 0 && DAYS.innerText != 0) {
+              HOURS.innerText = 23;
+              DAYS.innerText--;
+            }
+          }
+        }
+      } else {
+        alert('TIMER IS OUT!! PLEASE WORK');
+      }
+    }, 1000);
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

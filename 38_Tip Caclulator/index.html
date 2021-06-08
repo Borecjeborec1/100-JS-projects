@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="blue" style="padding: 10px">
+        <div class="row">
+          <h3 class="col s6">Bill Amount:</h3>
+          <input type="number" class="col s4 bill-amount" style="margin-top: 25px" />
+        </div>
+        <div class="row">
+          <h3 class="col s6">Percentage Tip:</h3>
+          <input type="number" class="col s4 percentage-tip" style="margin-top: 25px" />
+        </div>
+        <div class="row">
+          <h3 class="col s6">Tip Amount:</h3>
+          <input disabled type="number" class="col s4 tip-amount" style="margin-top: 25px" />
+        </div>
+        <div class="row">
+          <h3 class="col s6">Total:</h3>
+          <input disabled type="number" class="col s4 total" style="margin-top: 25px" />
+        </div>
+        <div class="center">
+          <button class="btn">Calculate</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const billAmount = document.querySelector('.bill-amount');
+    const percentage = document.querySelector('.percentage-tip');
+    const tipAmount = document.querySelector('.tip-amount');
+    const total = document.querySelector('.total');
+
+    document.querySelector('.btn').addEventListener('click', () => {
+      let tip = (Number(percentage.value) / 100) * Number(billAmount.value);
+      tipAmount.value = tip.toFixed(2);
+      let calculatedTotal = Number(billAmount.value) + tip;
+      total.value = calculatedTotal.toFixed(2);
+    });
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

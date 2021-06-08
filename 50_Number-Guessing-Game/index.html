@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      div a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container center blue lighten-3" style="padding-bottom: 50px">
+      <div class="purple white-text" style="margin-top: 10px">
+        <h4>Number guessing game</h4>
+      </div>
+      <h6>Try and guess a random number between 1 and 100.</h6>
+      <h6>You have 10 attempts to guess the right number.</h6>
+      <h3>Guess a number</h3>
+      <div class="row">
+        <input type="number" id="input" class="col s6 offset-s3" />
+      </div>
+
+      <button class="btn">Submit guess</button>
+      <h6>Previous Guesses: <span id="previous"></span></h6>
+      <h6>Guesses Remaining: <span id="remaining"> 10</span></h6>
+      <div class="purple" style="margin-top: 10px">
+        <h4 id="big-low"></h4>
+      </div>
+      <div id="endgame"></div>
+    </div>
+  </body>
+  <script>
+    const button = document.querySelector('.btn');
+    const input = document.querySelector('#input');
+    const previous = document.querySelector('#previous');
+    const remaining = document.querySelector('#remaining');
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    console.log(randomNumber);
+
+    button.addEventListener('click', main);
+
+    function main() {
+      if (input.value !== '') {
+        if (remaining.innerText != 0) {
+          if (input.value < randomNumber) {
+            previous.innerText = previous.innerText + input.value + ', ';
+            remaining.innerText--;
+            document.querySelector('#big-low').innerText = 'Too Low';
+            input.value = '';
+          } else if (input.value > randomNumber) {
+            previous.innerText = previous.innerText + input.value + ', ';
+
+            remaining.innerText--;
+            document.querySelector('#big-low').innerText = 'Too High';
+            input.value = '';
+          } else {
+            document.querySelector('#big-low').innerText = `Very Well, The number was ${randomNumber}`;
+            input.value = '';
+            let endButton = document.createElement('button');
+            endButton.classList.add('btn');
+            endButton.innerHTML = `<a href="index.html">New Game</a>`;
+            document.querySelector('#endgame').appendChild(endButton);
+          }
+        } else {
+          document.querySelector('#big-low').innerText = `You Lost, The number was ${randomNumber}`;
+          input.value = '';
+          let endButton = document.createElement('button');
+          endButton.classList.add('btn');
+          endButton.innerHTML = `<a href="index.html">New Game</a>`;
+          document.querySelector('#endgame').appendChild(endButton);
+        }
+      }
+    }
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

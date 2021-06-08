@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row center">
+        <div class="col s4">
+          <h3 id="instance">3 + 4 =</h3>
+        </div>
+        <div class="input-field col s3" style="margin-top: 25px">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn col s5 offset-s1 check">Check</button>
+      </div>
+      <div class="row">
+        <button class="btn col s5 offset-s1 new">New instance</button>
+      </div>
+      <h5 class="total-output"></h5>
+    </div>
+  </body>
+  <script>
+    const operators = ['+', '-', '*'];
+    const checkButton = document.querySelector('.check');
+    const newButton = document.querySelector('.new');
+    let input = document.querySelector('.materialize-textarea');
+    let counter = 0;
+    let randomOperatorNumber = Math.floor(Math.random() * operators.length);
+    let randomNumber1 = Math.round(Math.random() * 20);
+    let randomNumber2 = Math.round(Math.random() * 20);
+    let totalOutput = randomNumber1 + operators[randomOperatorNumber] + randomNumber2;
+
+    newButton.addEventListener('click', () => {
+      randomOperatorNumber = Math.floor(Math.random() * operators.length);
+      randomNumber1 = Math.round(Math.random() * 20);
+      randomNumber2 = Math.round(Math.random() * 20);
+      totalOutput = randomNumber1 + operators[randomOperatorNumber] + randomNumber2;
+      document.getElementById('instance').innerText = `${totalOutput} =`;
+      input.value = '';
+      newButton.classList.add('disabled');
+      checkButton.classList.remove('disabled');
+    });
+    checkButton.addEventListener('click', () => {
+      let totalOutputEval = eval(totalOutput);
+      console.log(input.value);
+      console.log(totalOutputEval);
+      if (input.value == totalOutputEval) {
+        checkButton.classList.add('disabled');
+        newButton.classList.remove('disabled');
+        counter++;
+        console.log(counter);
+        document.querySelector('.total-output').innerText = counter;
+      } else {
+        console.log(counter);
+        document.querySelector('.total-output').innerText = 'Wrong Answer!';
+      }
+    });
+
+    document.getElementById('instance').innerText = `${totalOutput} =`;
+    newButton.classList.add('disabled');
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+        font-size: 16px;
+        text-transform: capitalize;
+      }
+
+      ul a {
+        text-decoration: none;
+        color: purple;
+      }
+
+      ul a:hover {
+        color: #f06a92;
+      }
+    </style>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body class="red lighten-2">
+    <div class="container blue lighten-2" style="padding: 25px; margin-top: 25px">
+      <div class="heading center">
+        <h3>RSS Feed for <span style="color: purple">BBC News - World</span></h3>
+        <h5 class="date"></h5>
+      </div>
+      <div class="textarea">
+        <ul></ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
+  <script>
+    const url = 'http://feeds.bbci.co.uk/news/technology/rss.xml';
+
+    const date = new Date();
+    const output = document.querySelector('.textarea > ul');
+
+    document.querySelector('.date').innerText = date.toDateString();
+
+    feednami.load(url).then((feed) => {
+      output.value = '';
+      console.log(feed);
+      for (let entry of feed.entries) {
+        let li = document.createElement('li');
+
+        li.innerHTML = `<h4><a href="${entry.link}">${entry.title}</a></h4>`;
+
+        output.appendChild(li);
+
+        li.classList.add('list');
+      }
+    });
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

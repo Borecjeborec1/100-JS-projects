@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="icon" href="/Projects/Logo/Logo4.png" type="image/icon type" />
+    <style>
+      .rounded {
+        border-radius: 10px;
+      }
+      .btn {
+        margin-top: 20px;
+        min-width: 150px;
+      }
+      .container {
+        height: fit-content;
+        padding: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container red lighten-4 rounded" style="min-height: 500px">
+      <h3 class="center output">Choose The Correct Answer</h3>
+      <div class="inner-container">
+        <h4 class="center red lighten-3 rounded questionHeading">What is the baby of a moth known as?</h4>
+        <div class="center">
+          <button class="btn red lighten-2 waves-effect" id="answer0">baby</button> <br />
+          <button class="btn red lighten-2 waves-effect" id="answer1">infant</button> <br />
+          <button class="btn red lighten-2 waves-effect" id="answer2">kit</button> <br />
+          <button class="btn red lighten-2 waves-effect" id="answer3">larva</button><br />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let correctAnswer;
+    const QUESTIONS = [
+      {
+        question: 'What is the baby of a moth known as?',
+        choices: ['baby', 'infant', 'kit', 'larva'],
+        correctAnswer: 3,
+      },
+      {
+        question: 'What is the adult of a kid called?',
+        choices: ['calf', 'doe', 'goat', 'chick'],
+        correctAnswer: 2,
+      },
+      {
+        question: 'What is the young of buffalo called?',
+        choices: ['calf', 'baby', 'pup', 'cow'],
+        correctAnswer: 0,
+      },
+      {
+        question: 'What is a baby alligator called?',
+        choices: ['baby', 'gator', 'hatchling', 'calf'],
+        correctAnswer: 1,
+      },
+      {
+        question: 'What is a baby goose called?',
+        choices: ['gooser', 'gosling', 'gup', 'pup'],
+        correctAnswer: 1,
+      },
+    ];
+    const BUTTONS = document.querySelectorAll('.btn');
+    let currentQuestion = 0;
+    let counter = 0;
+    BUTTONS.forEach((b) => {
+      b.addEventListener('click', (e) => {
+        if (
+          e.target.innerText.toLowerCase() ===
+          QUESTIONS[currentQuestion].choices[QUESTIONS[currentQuestion].correctAnswer]
+        ) {
+          counter++;
+        } else {
+          console.log(QUESTIONS[currentQuestion].choices[QUESTIONS[currentQuestion].correctAnswer]);
+        }
+
+        console.log(counter);
+        currentQuestion++;
+        if (currentQuestion == 5) {
+          const CONTAINER = document.querySelector('.inner-container');
+          CONTAINER.style.display = 'none';
+          document.querySelector('.output').innerText = `You have recieved ${counter}/5 points.`;
+        } else {
+          document.querySelector('#answer0').innerText = QUESTIONS[currentQuestion].choices[0];
+          document.querySelector('#answer1').innerText = QUESTIONS[currentQuestion].choices[1];
+          document.querySelector('#answer2').innerText = QUESTIONS[currentQuestion].choices[2];
+          document.querySelector('#answer3').innerText = QUESTIONS[currentQuestion].choices[3];
+
+          document.querySelector('.questionHeading').innerText = QUESTIONS[currentQuestion].question;
+        }
+      });
+    });
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

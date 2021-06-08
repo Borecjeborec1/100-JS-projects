@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" href="americanoCaffee.jpg" type="image/icon type" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body class="brown lighten-3">
+    <div class="container">
+      <h3 class="center">Coffee Shop</h3>
+      <div class="card-panel brown lighten-4 z-depth-1">
+        <div class="row valign-wrapper">
+          <div class="col s4">
+            <img src="blackCoffee.jpg" alt="" class="circle materialboxed responsive-img" />
+          </div>
+          <div class="col s12"><h5>Black</h5></div>
+          <div class="col s6"><button id="button" class="btn grey lighten-2 black-text">Black $2.70</button></div>
+        </div>
+        <div class="col s10">
+          Black coffee is as simple as it gets with ground coffee beans steeped in hot water, served warm. And if you
+          want to sound fancy, you can call black coffee by its proper name: cafe noir.
+        </div>
+      </div>
+
+      <div class="col s10">
+        <div class="card-panel brown lighten-4 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s4">
+              <img src="latteCaffee.jpg" alt="" class="circle materialboxed responsive-img" />
+            </div>
+            <div class="col s12"><h5>Latte</h5></div>
+            <div class="col s6"><button id="button" class="btn grey lighten-2 black-text">Latte $3.30</button></div>
+          </div>
+          <div class="col s10">
+            As the most popular coffee drink out there, the latte is comprised of a shot of espresso and steamed milk
+            with just a touch of foam. It can be ordered plain or with a flavor shot of anything from vanilla to pumpkin
+            spice.
+          </div>
+        </div>
+      </div>
+
+      <div class="card-panel brown lighten-4 z-depth-1">
+        <div class="row valign-wrapper">
+          <div class="col s4">
+            <img src="capuccinoCaffee.jpg" alt="" class="circle materialboxed responsive-img" />
+          </div>
+          <div class="col s12"><h5>Cappuccino</h5></div>
+          <div class="col s6"><button id="button" class="btn grey lighten-2 black-text">Cappuccino $2.50</button></div>
+        </div>
+        <div class="col s10">
+          Cappuccino is a latte made with more foam than steamed milk, often with a sprinkle of cocoa powder or cinnamon
+          on top. Sometimes you can find variations that use cream instead of milk or ones that throw in flavor shot, as
+          well.
+        </div>
+      </div>
+
+      <div class="card-panel brown lighten-4 z-depth-1">
+        <div class="row valign-wrapper">
+          <div class="col s4">
+            <img src="americanoCaffee.jpg" alt="" class="circle materialboxed responsive-img" />
+          </div>
+          <div class="col s12"><h5>Americano</h5></div>
+          <div class="col s6"><button id="button" class="btn grey lighten-2 black-text">Americano $3.70</button></div>
+        </div>
+        <div class="col s10">
+          With a similar flavor to black coffee, the americano consists of an espresso shot diluted in hot water. Pro
+          tip: if you’re making your own, pour the espresso first, then add the hot water.
+        </div>
+      </div>
+
+      <div class="card-panel brown lighten-4 z-depth-1">
+        <div class="row valign-wrapper">
+          <div class="col s4">
+            <img src="esressoCaffee.jpg" alt="" class="circle materialboxed responsive-img" />
+          </div>
+          <div class="col s12"><h5>Espresso</h5></div>
+          <div class="col s6"><button id="button" class="btn grey lighten-2 black-text">Espresso $3.50</button></div>
+        </div>
+        <div class="col s10">
+          An espresso shot can be served solo or used as the foundation of most coffee drinks, like lattes and
+          macchiatos.
+        </div>
+      </div>
+    </div>
+    <div class="col s12 card-panel brown lighten-4 z-depth-1">
+      <div class="row">
+        <div class="col s12">
+          <h5><i class="material-icons">shopping_cart</i></h5>
+          <h5 id="newCoffee"></h5>
+        </div>
+      </div>
+      <div class="col s10" id="price"></div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.materialboxed').materialbox();
+    });
+  </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/c9687a7a14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Budget App</h3>
+      <div class="row">
+        <div
+          style="border: 2px solid rgb(62, 238, 185); margin-top: 100px; padding: 40px; border-radius: 5%"
+          class="col s6"
+        >
+          <h4>Please Enter Your Budget</h4>
+          <input type="number" id="budgetInput" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div
+          style="border: 2px solid rgb(62, 238, 185); margin-top: 25px; padding: 40px; border-radius: 5%"
+          class="col s6"
+        >
+          <h4>Please Enter Your Expense</h4>
+          <input type="number" id="expenseInput" />
+        </div>
+      </div>
+      <button class="btn" id="calculate" style="margin-left: 10px">Calculate</button>
+      <div class="row" style="position: relative; left: 55%; top: -750px">
+        <div class="col s4">
+          <h3>BUDGET</h3>
+          <i class="material-icons" style="margin-left: 50px">local_atm</i>
+          <h5 id="budgetValue" style="color: green; margin-left: 50px">$0</h5>
+        </div>
+        <div class="col s4">
+          <h3>EXPENSES</h3>
+          <i class="material-icons" style="margin-left: 50px">attach_money</i>
+          <h5 id="expenseValue" style="color: red; margin-left: 50px">$0</h5>
+        </div>
+        <div class="col s4">
+          <h3>BALANCE</h3>
+          <i class="material-icons" style="margin-left: 50px">money_off</i>
+          <h5 id="resultValue" style="margin-left: 50px">$0</h5>
+        </div>
+      </div>
+
+      <div class="row" style="position: relative; left: 55%; top: -750px" id="newMainDiv"></div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

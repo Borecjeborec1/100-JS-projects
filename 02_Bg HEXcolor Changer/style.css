@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: khaki;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-size: xx-large;
+  position: absolute;
+  top: 40%;
+}
+
+#btn {
+  position: absolute;
+  top: 45%;
+}

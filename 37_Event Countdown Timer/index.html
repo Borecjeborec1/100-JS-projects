@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <input type="date" class="col s6" id="date-input" />
+      </div>
+      <p id="error"></p>
+      <ul>
+        <li style="display: inline-block; margin-right: 20px"><span id="currentDay">?</span> Days</li>
+        <li style="display: inline-block; margin-right: 20px"><span id="currentHour">?</span> Hours</li>
+        <li style="display: inline-block; margin-right: 20px"><span id="currentMinute">?</span> Minutes</li>
+        <li style="display: inline-block; margin-right: 20px"><span id="currentSecond">?</span> Seconds</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    setInterval(main, 1000);
+
+    function main() {
+      let currentDate = new Date();
+      let t = Date.parse(document.querySelector('#date-input').valueAsDate) - Date.parse(currentDate);
+      let seconds = Math.floor((t / 1000) % 60);
+      let minutes = Math.floor((t / 1000 / 60) % 60);
+      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      let days = Math.floor(t / (1000 * 60 * 60 * 24));
+      if (document.querySelector('#date-input').value != '' && seconds > 0) {
+        document.querySelector('#currentSecond').innerHTML = seconds;
+        document.querySelector('#currentMinute').innerHTML = minutes;
+        document.querySelector('#currentHour').innerHTML = hours;
+        document.querySelector('#currentDay').innerHTML = days;
+        error.innerText = '';
+      } else {
+        error.innerText = 'Please enter future date.';
+        error.style.color = 'red';
+      }
+    }
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

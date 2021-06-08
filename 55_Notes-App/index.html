@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .displayNone {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Header-->
+    <div id="div1">
+      <div class="teal lighten-2 white-text">
+        <div style="padding: 15px; margin-left: 150px">
+          <h4 style="padding: 0; font-weight: bold; margin: 0">Notes App</h4>
+          <h6>Take notes and never forget</h6>
+        </div>
+      </div>
+      <!--Filter-->
+      <div class="row grey lighten-2">
+        <input
+          type="text"
+          style="margin: 5px 15px 5px 150px; border-radius: 5px"
+          placeholder="Filter todos"
+          class="col s3 teal lighten-5 black-text"
+        />
+        <div class="input-field col s3" style="margin: 5px 15px 5px 0px; border-radius: 5px">
+          <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Sort by Last edited</option>
+            <option value="2">Sort Alpabetically</option>
+            <option value="3">Sort by recently created</option>
+          </select>
+        </div>
+      </div>
+
+      <a class="btn-small" style="border-radius: 7px; margin-left: 150px" id="newNote"> Create Note</a>
+    </div>
+    <!--Second Page-->
+
+    <div class="displayNone" id="div2">
+      <div class="teal lighten-2 white-text">
+        <div style="padding: 15px; margin-left: 150px">
+          <h4 style="padding: 0; font-weight: bold; margin: 0">Notes App</h4>
+          <h6>Take notes and never forget</h6>
+        </div>
+      </div>
+      <div style="margin-left: 150px">
+        <h5 id="addButton"><a style="cursor: pointer; text-decoration: underline"> Home & Save</a></h5>
+        <div class="row" style="margin-top: 15px">
+          <input type="text" placeholder="Note title" class="col s7" id="title" />
+        </div>
+
+        <div class="row">
+          <textarea class="materialize-textarea col s7" id="body" placeholder="Note"></textarea>
+        </div>
+        <a class="btn-small" id="removeButton">Remove note</a>
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+
+    const createNoteBtn = document.querySelector('#newNote');
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+    const addBtn = document.getElementById('addButton');
+    const removeBtn = document.getElementById('removeButton');
+    const headInp = document.getElementById('title');
+    const bodyInp = document.getElementById('body');
+    const notes = [];
+    const localNotes = localStorage.getItem('notes');
+
+    createNoteBtn.addEventListener('click', () => {
+      div1.classList.add('displayNone');
+      div2.classList.remove('displayNone');
+    });
+
+    addBtn.addEventListener('click', () => {
+      let headInput = headInp.value;
+      let bodyInput = bodyInp.value;
+
+      if (headInput && bodyInput) {
+        let note = {
+          head: headInput,
+          body: bodyInput,
+        };
+
+        notes.push(note);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        console.log(localStorage.getItem('notes'));
+        console.log(localStorage);
+
+        headInp.value = '';
+        bodyInp.value = '';
+        div1.classList.remove('displayNone');
+        div2.classList.add('displayNone');
+      } else {
+        alert('Please Enter Valid Note');
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+      .displayNone {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <h3 class="center">Choose the correct Answer</h3>
+      <h4 class="question">{{ questionArray[0].question }}</h4>
+      <!--Question 1-->
+      <ul
+        :class="{boxRightQ1: displayNone}"
+        :class="{boxFalseQ1A1: displayNone}"
+        :class="{boxFalseQ1A2: displayNone}"
+        :class="{boxFalseQ1A3: displayNone}"
+      >
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ1A1" />
+            <span> {{ questionArray[0].badResult[0] }}</span>
+          </li>
+        </label>
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ1A2" />
+            <span> {{ questionArray[0].badResult[1] }}</span>
+          </li> </label
+        ><label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ1A3" />
+            <span> {{ questionArray[0].badResult[2] }}</span>
+          </li> </label
+        ><label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxRightQ1" />
+            <span> {{ questionArray[0].goodResult }}</span>
+          </li>
+        </label>
+      </ul>
+      <!--Question 2-->
+      <ul class="displayNone">
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ2A1" />
+            <span> {{ questionArray[1].badResult[0] }}</span>
+          </li>
+        </label>
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ2A2" />
+            <span> {{ questionArray[1].badResult[1] }}</span>
+          </li> </label
+        ><label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxRightQ2" />
+            <span> {{ questionArray[1].goodResult }}</span>
+          </li> </label
+        ><label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ2A3" />
+            <span> {{ questionArray[1].badResult[2] }}</span>
+          </li>
+        </label>
+      </ul>
+      <!--Question 3-->
+      <ul class="displayNone">
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ3A1" />
+            <span> {{ questionArray[2].badResult[0] }}</span>
+          </li>
+        </label>
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxRightQ3" />
+            <span> {{ questionArray[2].goodResult }}</span>
+          </li>
+        </label>
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ3A2" />
+            <span> {{ questionArray[2].badResult[1] }}</span>
+          </li> </label
+        ><label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ3A3" />
+            <span> {{ questionArray[2].badResult[2] }}</span>
+          </li>
+        </label>
+      </ul>
+      <!--Question 4-->
+      <ul class="displayNone">
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxRightQ4" />
+            <span> {{ questionArray[3].goodResult }}</span>
+          </li>
+        </label>
+
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ4A1" />
+            <span> {{ questionArray[3].badResult[0] }}</span>
+          </li>
+        </label>
+
+        <label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ4A2" />
+            <span> {{ questionArray[3].badResult[1] }}</span>
+          </li> </label
+        ><label>
+          <li>
+            <input type="checkbox" class="filled-in" v-model="boxFalseQ4A3" />
+            <span> {{ questionArray[3].badResult[2] }}</span>
+          </li>
+        </label>
+      </ul>
+    </div>
+  </body>
+  <script>
+    var main = new Vue({
+      el: '#app',
+      data: {
+        boxFalseQ1A1: '',
+        boxFalseQ1A2: '',
+        boxFalseQ1A3: '',
+        boxFalseQ2A1: '',
+        boxFalseQ2A2: '',
+        boxFalseQ2A3: '',
+        boxFalseQ3A1: '',
+        boxFalseQ3A2: '',
+        boxFalseQ3A3: '',
+        boxFalseQ4A1: '',
+        boxFalseQ4A2: '',
+        boxFalseQ4A3: '',
+
+        boxRightQ1: '',
+        boxRightQ2: '',
+        boxRightQ3: '',
+        boxRightQ4: '',
+
+        questionArray: [
+          {
+            question: 'Question 1',
+            badResult: ['answer1', 'answer2', 'answer3'],
+            goodResult: 'answer',
+          },
+          {
+            question: 'Question 2',
+            badResult: ['answer1', 'answer2', 'answer3'],
+            goodResult: 'answer',
+          },
+          {
+            question: 'Question 3',
+            badResult: ['answer1', 'answer2', 'answer3'],
+            goodResult: 'answer',
+          },
+          {
+            question: 'Question 4',
+            badResult: ['answer1', 'answer2', 'answer3'],
+            goodResult: 'answer',
+          },
+        ],
+      },
+    });
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Form</title>
+    <script src="https://kit.fontawesome.com/c9687a7a14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .newP {
+        text-align: center;
+      }
+      .displayNone {
+        display: none;
+      }
+      .newCourseDiv {
+        margin: 50px auto;
+        border-radius: 5px;
+        border: 3px solid #4db6ac;
+        text-align: center;
+        min-width: 100px;
+        width: fit-content;
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="center">Get A Free Course</h3>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="nameInput" type="text" />
+              <label for="icon_prefix" class="active">Customer Name</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">phone</i>
+              <input type="number" id="numberInput" />
+              <label for="icon_telephone" class="active">Telephone</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">event</i>
+              <input type="date" id="dateInput" />
+              <label for="icon_telephone" class="active">Author Name</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="newP"></div>
+      <button class="btn waves-effect" style="margin-left: 45%" id="findButton">Find Course</button>
+      <div class="progress displayNone" style="margin-top: 50px" id="preloader">
+        <div class="indeterminate"></div>
+      </div>
+      <div id="newMainDiv"></div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
